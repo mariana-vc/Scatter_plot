@@ -1,10 +1,10 @@
 // HELPERS
 function parseData(d) {
-  var keys = _.keys(d[11]);  /////
+  var keys = _.keys(d[11]);  /////SELECCION DE KEY (COLUMNA PARA EL MOUSEOVER)
   return _.map(d, function(d) {
     var o = {};
     _.each(keys, function(k) {
-      if( k == 'nombre2' )  /////
+      if( k == 'nombre2' )  /////SELECCION DE KEY "NOMBRE DE LA COLUMNA" (COLUMNA PARA EL MOUSEOVER)
         o[k] = d[k];
       else
         o[k] = parseFloat(d[k]);
@@ -17,7 +17,7 @@ function getBounds(d, paddingFactor) {
   // Find min and maxes (for the scales)
   paddingFactor = typeof paddingFactor !== 'undefined' ? paddingFactor : 1;
 
-  var keys = _.keys(d[11]), b = {}; /////
+  var keys = _.keys(d[11]), b = {}; /////SELECCION DE KEY (COLUMNA PARA EL MOUSEOVER)
   _.each(keys, function(k) {
     b[k] = {};
     _.each(d, function(d) {
@@ -57,7 +57,7 @@ function getCorrelation(xArray, yArray) {
   var dtorX = sumX2 - ( sumX * sumX / n);
   var dtorY = sumY2 - ( sumY * sumY / n);
  
-  var r = ntor / (Math.sqrt( dtorX * dtorY )); // Pearson ( http://www.stat.wmich.edu/s216/book/node122.html )
+  var r = ntor / (Math.sqrt( dtorX * dtorY ));
   var m = ntor / dtorX; // y = mx + b
   var b = ( sumY - m * sumX ) / n;
 
@@ -65,9 +65,9 @@ function getCorrelation(xArray, yArray) {
   return {r: r, m: m, b: b};
 }
 
-d3.csv('data/vector.csv', function(data) {
+d3.csv('data/vector.csv', function(data) {/////SE INGRESA EL CSV DESEADO
 
-  var xAxis = 'vector2', yAxis = 'vector1';  /////
+  var xAxis = 'vector2', yAxis = 'vector1';  /////COLUMNAS 
   var xAxisOptions = ["vector2", "vector3", "vector4", "vector5", "vector6", "vector7", "vector8", "vector9", "vector10"]  //////////opciones menu
   // var yAxisOptions = ["Well-being"];
   var descriptions = {
@@ -82,7 +82,7 @@ d3.csv('data/vector.csv', function(data) {
     "vector10" : " "
   };
 
-  var keys = _.keys(data[11]); /////
+  var keys = _.keys(data[11]); /////SELECCION DE KEY (COLUMNA PARA EL MOUSEOVER)
   var data = parseData(data);
   var bounds = getBounds(data, 1);  
 
@@ -112,6 +112,8 @@ d3.csv('data/vector.csv', function(data) {
       updateChart();
       updateMenus();
     });
+
+//EN CASO DE QUERER CAMBIAR 'Y' Y NO TENERLA FIJA 
 
   // d3.select('#y-axis-menu')
   //   .selectAll('li')
@@ -144,7 +146,7 @@ d3.csv('data/vector.csv', function(data) {
     .append('text')
     .attr('transform', 'translate(-60, 330)rotate(-90)')
     .attr({'id': 'yLabel', 'text-anchor': 'middle'})
-    .text('Well-being (scale of 0-10)');
+    .text(' '); /////SELECCION DEL TITULO DEL EJE Y
 
   // Render points
   updateScales();
@@ -160,6 +162,8 @@ d3.csv('data/vector.csv', function(data) {
     .attr('cy', function(d) {
       return isNaN(d[yAxis]) ? d3.select(this).attr('cy') : yScale(d[yAxis]);
     })
+
+    /////SELECCION DE COLORES PARA LA DISTINCION
     .attr('fill', function(d) {
 			if(d.nombre2=='Mayas'){
 				return pointColour(0);
@@ -185,7 +189,7 @@ d3.csv('data/vector.csv', function(data) {
     .style('cursor', 'pointer')
     .on('mouseover', function(d) {
       d3.select('svg g.chart #countryLabel')
-        .text(d.nombre2)  //////////
+        .text(d.nombre2)  //////////AGREGAS EL NOMBRE DE LA COLUMNA SELECCIONADA (MOUSEOVER)
         .transition()
         .style('opacity', 1);
     })
