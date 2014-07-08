@@ -1,2 +1,4 @@
-Scatter_plot
+scatter_plot
 ============
+
+Grafica interactiva usando d3
