@@ -65,7 +65,7 @@ function getCorrelation(xArray, yArray) {
   return {r: r, m: m, b: b};
 }
 
-d3.csv('data/vector.csv', function(data) {/////SE INGRESA EL CSV DESEADO
+d3.csv('data/tray_2.csv', function(data) {/////SE INGRESA EL CSV DESEADO
 
   var xAxis = 'vector2', yAxis = 'vector1';  /////COLUMNAS 
   var xAxisOptions = ["vector2", "vector3", "vector4", "vector5", "vector6", "vector7", "vector8", "vector9", "vector10"]  //////////opciones menu
