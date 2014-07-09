@@ -32,7 +32,14 @@
 			<div id="about">
 				<!-- <h4>About</h4> -->
 				DESCRIPCION!!!!!!!
-
+				
+				<select id="combo" name="combo" onchange="check()">
+					<option value="" disabled selected style="display:none;">Opciones</option>
+					<option value="csv1">Sin_mayas</option>
+					<option value="csv2">menos_dos</option>
+					<option value="csv3">tray_2</option>
+					<option value="csv4">Todos_Final</option>
+				</select>
 
 			</div>
 
@@ -48,17 +55,5 @@
 		<script src="js/underscore-min.js"></script>
 		<script src="js/main.js"></script>
 
-	  <!-- Twitter -->
-	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	  <!-- Facebook -->
-	  <div id="fb-root"></div>
-	  <script>(function(d, s, id) {
-	    var js, fjs = d.getElementsByTagName(s)[0];
-	    if (d.getElementById(id)) return;
-	    js = d.createElement(s); js.id = id;
-	    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=220656758000337";
-	    fjs.parentNode.insertBefore(js, fjs);
-	  }(document, 'script', 'facebook-jssdk'));</script>
 	</body>
 </html>
