@@ -71,12 +71,12 @@ function check(){
 	xScale ="";
 	yScale ="";
 	
-	if(str=="csv1"){ //value
+	if(str=="csv"){ //value
 	
 		d3.csv('data/sin_maya.csv', function(data) {/////SE INGRESA EL CSV DESEADO
 
   var xAxis = 'vector2', yAxis = 'vector1';  /////COLUMNAS 
-  var xAxisOptions = ["vector2", "vector3", "vector4", "vector5", "vector6", "vector7", "vector8", "vector9", "vector10"]  //////////opciones menu
+  var xAxisOptions = ["vector2", "vector3", "vector4", "vector5", "vector6", "vector7", "vector8", "vector9", "vector10"]  ///opciones menu
   // var yAxisOptions = ["Well-being"];
   var descriptions = {
     "vector2" : " ",
@@ -311,7 +311,7 @@ function check(){
 
 })
 	}
-	if(str=="csv2"){
+	if(str=="csv"){
 
 		d3.csv('data/menos_2.csv', function(data) {/////SE INGRESA EL CSV DESEADO
 
@@ -551,7 +551,7 @@ function check(){
 
 })
 	}
-	if(str=="csv3"){
+	if(str=="csv"){
 
 		d3.csv('data/tray_2.csv', function(data) {/////SE INGRESA EL CSV DESEADO
 
